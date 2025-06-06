@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React from "react";
 const ProductDetails = () => {
   const product = {
@@ -7,20 +8,13 @@ const ProductDetails = () => {
     price: 100,
     offerPrice: 80,
     rating: 4,
-    images: [
-      "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/card/productImage.png",
-      "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/card/productImage2.png",
-      "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/card/productImage3.png",
-      "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/card/productImage4.png",
-    ],
     description: [
       "High-quality material",
       "Comfortable for everyday use",
       "Available in different sizes",
     ],
+    image: "/products/black shoe.jpg",
   };
-
-  const [thumbnail, setThumbnail] = React.useState(product.images[0]);
 
   return (
     product && (
@@ -32,25 +26,14 @@ const ProductDetails = () => {
         </p>
 
         <div className="flex flex-col md:flex-row gap-16 mt-4">
-          <div className="flex gap-3">
-            <div className="flex flex-col gap-3">
-              {product.images.map((image, index) => (
-                <div
-                  key={index}
-                  onClick={() => setThumbnail(image)}
-                  className="border max-w-24 border-gray-500/30 rounded overflow-hidden cursor-pointer"
-                >
-                  <img src={image} alt={`Thumbnail ${index + 1}`} />
-                </div>
-              ))}
-            </div>
+          <Image
+            width={400}
+            height={200}
+            src={product.image}
+            alt="Selected product"
+          />
 
-            <div className="border border-gray-500/30 max-w-100 rounded overflow-hidden">
-              <img src={thumbnail} alt="Selected product" />
-            </div>
-          </div>
-
-          <div className="text-sm w-full md:w-1/2">
+          <div className="text-sm w-full ">
             <h1 className="text-3xl font-medium">{product.name}</h1>
 
             <div className="flex items-center gap-0.5 mt-1">
@@ -73,6 +56,7 @@ const ProductDetails = () => {
                     </svg>
                   ) : (
                     <svg
+                        key={i}
                       width="14"
                       height="13"
                       viewBox="0 0 18 17"

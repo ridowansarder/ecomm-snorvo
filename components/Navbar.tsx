@@ -3,7 +3,6 @@ import React from "react";
 import Searchbar from "./Searchbar";
 import { Package, ShoppingCart } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
@@ -15,17 +14,16 @@ const Navbar = () => {
     { name: "About", path: "/about" },
   ];
 
-  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
     <nav className="fixed top-0 left-0 bg-white w-full flex items-center justify-between px-4 md:px-8 lg:px-16 xl:px-24 transition-all duration-500 z-50  shadow-md text-gray-800 backdrop-blur-lg py-4 md:py-6 ">
       {/* Logo */}
 
-      <a href="/" className="flex items-center gap-2">
+      <Link href="/" className="flex items-center gap-2">
         <Package className="text-emerald-500" />
         <h1 className="text-xl text-black  tracking-wider">SNORVO</h1>
-      </a>
+      </Link>
 
       {/* Desktop Nav */}
       <div className="hidden lg:flex items-center gap-4 lg:gap-8 h-full">
@@ -50,7 +48,6 @@ const Navbar = () => {
               <Button>Login</Button>
             </SignInButton>
           </SignedOut>
-          
 
           <Link href="/cart" className="relative cursor-pointer">
             <ShoppingCart className="text-gray-800" />
@@ -60,8 +57,8 @@ const Navbar = () => {
           </Link>
         </div>
         <SignedIn>
-            <UserButton />
-          </SignedIn>
+          <UserButton />
+        </SignedIn>
 
         <div className="flex items-center gap-4 lg:hidden">
           <svg

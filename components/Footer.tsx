@@ -1,4 +1,5 @@
 import { Package } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -6,13 +7,13 @@ const Footer = () => {
     <div className="text-gray-500/80 pt-8 px-6 md:px-16 lg:px-24 xl:px-32">
       <div className="flex flex-wrap justify-between gap-12 md:gap-6">
         <div className="max-w-80">
-          <a href="/" className="flex items-center gap-2 mb-4">
+          <Link href="/" className="flex items-center gap-2 mb-4">
             <Package className="text-emerald-500" />
             <h1 className="text-xl text-black  tracking-wider">SNORVO</h1>
-          </a>
+          </Link>
           <p className="text-sm">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
+            industry. Lorem Ipsum has been the industry standard dummy text
           </p>
           <div className="flex items-center gap-3 mt-4">
             {/* Instagram */}
@@ -112,7 +113,7 @@ const Footer = () => {
       </div>
       <hr className="border-gray-300 mt-8" />
       <div className="flex flex-col md:flex-row gap-2 items-center justify-between py-5">
-        <p>© {new Date().getFullYear()} Brand. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Snorvo. All rights reserved.</p>
         <ul className="flex items-center gap-4">
           <li>
             <a href="#">Privacy</a>

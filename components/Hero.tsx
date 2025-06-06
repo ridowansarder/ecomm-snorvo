@@ -1,41 +1,30 @@
-import Image from "next/image";
+"use client";
 import { ShoppingBag } from "lucide-react";
-import { Button } from "./ui/button";
 import Link from "next/link";
 
+
+
 const Hero = () => {
+
   return (
-    <section className="relative w-full min-h-[100vh] flex items-center justify-center overflow-hidden rounded-lg">
-      {/* Background Image */}
-      <Image
-        src="/hero.jpg" 
-        alt="Shopping background"
-        fill
-        priority
-        className="object-cover object-center"
-      />
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
-
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-2xl space-y-6">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-            Welcome to Snorvo <br />
-          <span className="text-amber-400">Discover the Best Deals</span>
+    <div className="bg-[url('/hero.jpg')] relative flex flex-col justify-center items-center  py-36 px-4 sm:px-6 md:px-10 lg:px-24 text-white bg-no-repeat bg-cover bg-center min-h-screen">
+      {/* <div className="absolute inset-0 bg-black/60" /> */}
+      <div className="relative z-10 flex flex-col items-center lg:items-start gap-2 w-full max-w-7xl">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl 2xl:text-6xl font-bold max-w-4xl text-gray-900">
+          Welcome to Snorvo
         </h1>
-        <p className="text-base sm:text-lg text-gray-200">
-          Shop your favorite products with exclusive discounts and fast
-          delivery.
+        <p className="max-w-xl text-lg md:text-xl 2xl:text-2xl text-center lg:text-left mt-4 text-gray-700">
+          Discover the best products at unbeatable prices! Explore our wide
+          range of items, from electronics to fashion, and enjoy a seamless
+          shopping experience.
         </p>
-        <Link href="/products">
-          <Button className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg transition">
-            Start Shopping
-            <ShoppingBag className="w-5 h-5" />
-          </Button>
+        <Link href={"/products"} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
+          <button className="px-7 py-3 rounded bg-green-600 hover:bg-green-700 text-white font-medium flex items-center gap-2">
+            Start Shopping <ShoppingBag />
+          </button>
         </Link>
       </div>
-    </section>
+    </div>
   );
 };
 

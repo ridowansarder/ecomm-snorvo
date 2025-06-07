@@ -4,7 +4,6 @@ import Searchbar from "./Searchbar";
 import { Package, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   const navLinks = [
@@ -43,11 +42,8 @@ const Navbar = () => {
       <div className="flex items-center gap-6">
         <div className="hidden md:flex items-center gap-6 ">
           <Searchbar />
-          <SignedOut>
-            <SignInButton>
-              <Button>Login</Button>
-            </SignInButton>
-          </SignedOut>
+
+          <Button>Login</Button>
 
           <Link href="/cart" className="relative cursor-pointer">
             <ShoppingCart className="text-gray-800" />
@@ -56,9 +52,6 @@ const Navbar = () => {
             </span>
           </Link>
         </div>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
 
         <div className="flex items-center gap-4 lg:hidden">
           <svg
@@ -109,11 +102,8 @@ const Navbar = () => {
         <button className="outline md:hidden text-black px-8 py-2.5 rounded-full ml-4 transition-all duration-500">
           Cart
         </button>
-        <SignedOut>
-          <SignInButton>
-            <Button>Login</Button>
-          </SignInButton>
-        </SignedOut>
+
+        <Button>Login</Button>
       </div>
     </nav>
   );

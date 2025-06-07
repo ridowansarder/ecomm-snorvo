@@ -2,6 +2,7 @@ import { Package } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
+
 const Footer = () => {
   return (
     <div className="text-gray-500/80 pt-8 px-6 md:px-16 lg:px-24 xl:px-32">
